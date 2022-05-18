@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-
+ 
 @main
 struct MuminApp: App {
     var body: some Scene {
