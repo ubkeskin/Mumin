@@ -21,8 +21,8 @@ struct ClockView: View {
   @State var eveningIsOn: Bool = false
   @State var nightIsOn: Bool = false
   @State var alarmIsOn: Bool = false
-  
-  @ObservedObject var selections = Selections()
+    
+
   
   var body: some View {
         ZStack {
@@ -108,8 +108,10 @@ struct PrayerTimeRow: View {
   @Binding var picker: [DaysOfWeek]
   @ObservedObject var selections = Selections()
   let timeOfDay: TimesOfDay?
-  
+  @ ObservedObject var fetchedPrayerTime = FetchPrayerTime()
+    
   var body: some View {
+    
     HStack {
       Spacer()
       ZStack {
@@ -125,7 +127,7 @@ struct PrayerTimeRow: View {
         Capsule()
           .foregroundColor(Color("MenuButtonColor"))
           .frame(width: 185, height: 30, alignment: .leading)
-        Text("\(DateFormatter.localizedString(from: .now, dateStyle: .none, timeStyle: .short))")
+        Text("\(fetchedPrayerTime.fetchPrayerTime(time: timeOfDay ?? .morning)?.replacingOccurrences(of: "%", with: "") ??  "")")
           .foregroundColor(.white)
           .font(.headline)
           .bold()
@@ -162,6 +164,8 @@ struct PrayerTimeRow: View {
       })
       
       Spacer()
+    }.onAppear(){
+      fetchedPrayerTime.fetchDataAtUrl()
     }
   }
   func toggleButton() -> String? {
@@ -174,10 +178,8 @@ struct PrayerTimeRow: View {
   }
 
 struct OtherView: View {
-
   var body: some View {
     ClockView()
-
   }
 }
 
