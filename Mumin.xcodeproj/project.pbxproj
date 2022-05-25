@@ -7,15 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		635963A4283C058D000F7890 /* FetchPrayerTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 635963A3283C058D000F7890 /* FetchPrayerTime.swift */; };
 		63D519B62821982100286550 /* MultipleSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D519B52821982100286550 /* MultipleSelectionView.swift */; };
 		63DC11A927E7A5F600946391 /* MuminApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63DC11A827E7A5F600946391 /* MuminApp.swift */; };
 		63DC11AB27E7A5F600946391 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63DC11AA27E7A5F600946391 /* ContentView.swift */; };
 		63DC11AD27E7A5FE00946391 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 63DC11AC27E7A5FE00946391 /* Assets.xcassets */; };
 		63DC11B027E7A5FE00946391 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 63DC11AF27E7A5FE00946391 /* Preview Assets.xcassets */; };
 		63DC11BA27E7B46400946391 /* ClockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63DC11B927E7B46400946391 /* ClockView.swift */; };
+		63F59DB3283CDDDC00B4903D /* FileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F59DB2283CDDDC00B4903D /* FileManager.swift */; };
+		63F59DB5283D0A3E00B4903D /* PrayerTimeModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F59DB4283D0A3E00B4903D /* PrayerTimeModal.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		635963A3283C058D000F7890 /* FetchPrayerTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchPrayerTime.swift; sourceTree = "<group>"; };
 		63D519B52821982100286550 /* MultipleSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipleSelectionView.swift; sourceTree = "<group>"; };
 		63DC11A527E7A5F600946391 /* Mumin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mumin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		63DC11A827E7A5F600946391 /* MuminApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MuminApp.swift; sourceTree = "<group>"; };
@@ -23,6 +27,8 @@
 		63DC11AC27E7A5FE00946391 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		63DC11AF27E7A5FE00946391 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		63DC11B927E7B46400946391 /* ClockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClockView.swift; sourceTree = "<group>"; };
+		63F59DB2283CDDDC00B4903D /* FileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManager.swift; sourceTree = "<group>"; };
+		63F59DB4283D0A3E00B4903D /* PrayerTimeModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrayerTimeModal.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -36,6 +42,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		63AFABCF283B99B600A22F41 /* Modals */ = {
+			isa = PBXGroup;
+			children = (
+				635963A3283C058D000F7890 /* FetchPrayerTime.swift */,
+				63F59DB4283D0A3E00B4903D /* PrayerTimeModal.swift */,
+			);
+			path = Modals;
+			sourceTree = "<group>";
+		};
 		63DC119C27E7A5F600946391 = {
 			isa = PBXGroup;
 			children = (
@@ -55,6 +70,8 @@
 		63DC11A727E7A5F600946391 /* Mumin */ = {
 			isa = PBXGroup;
 			children = (
+				63F59DB1283CDDCC00B4903D /* Sources */,
+				63AFABCF283B99B600A22F41 /* Modals */,
 				63DC11A827E7A5F600946391 /* MuminApp.swift */,
 				63DC11B627E7B41E00946391 /* Views */,
 				63DC11AC27E7A5FE00946391 /* Assets.xcassets */,
@@ -79,6 +96,14 @@
 				63D519B52821982100286550 /* MultipleSelectionView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		63F59DB1283CDDCC00B4903D /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				63F59DB2283CDDDC00B4903D /* FileManager.swift */,
+			);
+			path = Sources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -153,8 +178,11 @@
 			files = (
 				63DC11AB27E7A5F600946391 /* ContentView.swift in Sources */,
 				63DC11BA27E7B46400946391 /* ClockView.swift in Sources */,
+				63F59DB5283D0A3E00B4903D /* PrayerTimeModal.swift in Sources */,
 				63DC11A927E7A5F600946391 /* MuminApp.swift in Sources */,
+				63F59DB3283CDDDC00B4903D /* FileManager.swift in Sources */,
 				63D519B62821982100286550 /* MultipleSelectionView.swift in Sources */,
+				635963A4283C058D000F7890 /* FetchPrayerTime.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
