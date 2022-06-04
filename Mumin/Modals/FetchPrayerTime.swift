@@ -11,6 +11,12 @@ import MapKit
 class FetchPrayerTime: NSObject, ObservableObject, URLSessionDelegate {
   var task: URLSessionDataTask?
   var url: URL?
+  var urlComponents = URLComponents()
+  var dateFormatter = DateFormatter()
+  var date = Date().formatted(date: .numeric, time: .omitted)
+  
+  
+  
   
   @Published var prayerTime: PrayerTimeModal?
     
@@ -20,11 +26,25 @@ class FetchPrayerTime: NSObject, ObservableObject, URLSessionDelegate {
     return URLSession(configuration: configuration, delegate: self, delegateQueue: nil)
   }()
   
-    
+  
   func fetchDataAtUrl() {
-    self.url = URL(string: "https://api.aladhan.com/v1/timings/" + "\(NSDate.now.formatted(date: .numeric, time: .omitted))".replacingOccurrences(of: "/", with: "-") + "?latitude=38.19612&longitude=26.83971&method=13&school=1")
+    self.urlComponents.scheme = "https"
+    urlComponents.host = "api.aladhan.com"
+    dateFormatter.dateFormat = "dd-MM-yyyy"
+    print("/v1/timings/" + "\(dateFormatter.string(from: Date()))")
+    urlComponents.path = "/v1/timings/" + "\(Date())"
+
+    urlComponents.queryItems = [
+    URLQueryItem(name: "latitude", value: "38.19612"),
+    URLQueryItem(name: "longitude", value: "26.83971"),
+    URLQueryItem(name: "method", value: "13"),
+    URLQueryItem(name: "school", value: "0"),
+    URLQueryItem(name: "midnightMode", value: "0")
+
+
+    ]
     
-    var request = URLRequest(url: url!)
+    var request = URLRequest(url: (urlComponents.url!))
     request.httpMethod = "GET"
     
     task = urlSession.dataTask(with: request) { data, response, error in

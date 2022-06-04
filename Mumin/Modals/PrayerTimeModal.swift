@@ -72,7 +72,7 @@ struct Meta: Codable {
     let timezone: String
     let method: Method
     let latitudeAdjustmentMethod, midnightMode, school: String
-    let offset: [String: Int]
+    let offset: [String: Int]?
 }
 
 // MARK: - Method
