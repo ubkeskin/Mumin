@@ -9,6 +9,7 @@ import Foundation
 import MapKit
 
 class FetchPrayerTime: NSObject, ObservableObject, URLSessionDelegate {
+  var userLocation: UserLocationModal
   var task: URLSessionDataTask?
   var url: URL?
   var urlComponents = URLComponents()
@@ -17,8 +18,14 @@ class FetchPrayerTime: NSObject, ObservableObject, URLSessionDelegate {
   
   
   
-  
   @Published var prayerTime: PrayerTimeModal?
+  
+  override init() {
+    userLocation = UserLocationModal()
+    super.init()
+    fetchDataAtUrl()
+    print(userLocation.latitude)
+  }
     
   
   lazy var urlSession: URLSession = {
@@ -28,15 +35,16 @@ class FetchPrayerTime: NSObject, ObservableObject, URLSessionDelegate {
   
   
   func fetchDataAtUrl() {
+    let locationAuthorizationStatus = userLocation.locationManager.authorizationStatus
     self.urlComponents.scheme = "https"
     urlComponents.host = "api.aladhan.com"
     dateFormatter.dateFormat = "dd-MM-yyyy"
-    print("/v1/timings/" + "\(dateFormatter.string(from: Date()))")
+//    print("/v1/timings/" + "\(dateFormatter.string(from: Date()))")
     urlComponents.path = "/v1/timings/" + "\(Date())"
 
     urlComponents.queryItems = [
-    URLQueryItem(name: "latitude", value: "38.19612"),
-    URLQueryItem(name: "longitude", value: "26.83971"),
+      URLQueryItem(name: "latitude", value: "\(userLocation.latitude.description)"),
+      URLQueryItem(name: "longitude", value: "\(userLocation.longitude.description)"),
     URLQueryItem(name: "method", value: "13"),
     URLQueryItem(name: "school", value: "0"),
     URLQueryItem(name: "midnightMode", value: "0")
@@ -56,19 +64,29 @@ class FetchPrayerTime: NSObject, ObservableObject, URLSessionDelegate {
               return
           }
           if let result = String(data: data, encoding: .utf8) {
-              print(result)
+//              print(result)
           }
       enum DateError: String, Error {
           case invalidDate
       }
           let decoder = JSONDecoder()
-      DispatchQueue.main.async {
-        do {
-          self.prayerTime = try decoder.decode(PrayerTimeModal.self, from: data)
-        } catch let error {
-          print(error)
+      switch locationAuthorizationStatus {
+      case .notDetermined:
+        self.userLocation.locationManager.requestWhenInUseAuthorization()
+      case .restricted, .denied:
+        self.userLocation.locationManager.requestWhenInUseAuthorization()
+      case .authorizedAlways, .authorizedWhenInUse, .authorized:
+        DispatchQueue.global(qos: .userInitiated).sync {
+          do {
+            self.prayerTime = try decoder.decode(PrayerTimeModal.self, from: data)
+          } catch let error {
+            print(error)
+          }
         }
+
       }
+
+
     }
     task?.resume()
     

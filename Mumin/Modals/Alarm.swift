@@ -8,9 +8,11 @@
 import Foundation
 import SwiftUI
 import AudioToolbox
+import Combine
 
-struct Alarm {
-  let uuidString = UUID().uuidString
+class Alarm: Equatable, ObservableObject {
+
+  lazy var uuidString = UUID().uuidString
   let notification = UNUserNotificationCenter.current()
   var calendar = Calendar(identifier: .gregorian)
   let sound = UNNotificationSound(named: UNNotificationSoundName.init(rawValue: "adhan.wav"))
@@ -18,15 +20,62 @@ struct Alarm {
   
   var dateComponents = DateComponents()
   @ObservedObject var fetchedPrayerTime = FetchPrayerTime()
-  var requests: [UNNotificationRequest] = []
+
+  @Published var requests = NotificationRequests()
   
   
   init() {
     fetchedPrayerTime.fetchDataAtUrl()
     calendar.locale = .init(identifier: "tr_TR")
+    loadNotificationRequests()
   }
   
-  mutating func setAlarm(weekDay: DaysOfWeek, time: TimesOfDay) {
+  static func == (lhs: Alarm, rhs: Alarm) -> Bool {
+    lhs.requests.requests == rhs.requests.requests
+  }
+
+//  mutating func loadNotificationRequests() {
+//    let decoder = JSONDecoder()
+//    let requestsURL = Bundle.main.url(forResource: "NotificationRequests", withExtension: "json")
+//
+//    do {
+//      let requestsData = try Data(contentsOf: requestsURL!)
+//      self.requests = try decoder.decode(NotificationRequests.self, from: requestsData)
+//      print(requests.requests)
+//    } catch let error {
+//      print(error)
+//    }
+//  }
+  
+  func loadNotificationRequests() {
+    let decoder = JSONDecoder()
+    let requestsURL = Bundle.main.url(forResource: "NotificationRequests", withExtension: "json")
+    
+    do {
+      let requestsData = try Data(contentsOf: requestsURL!)
+      let requests = try decoder.decode(NotificationRequests.self, from: requestsData)
+      self.requests = requests
+    } catch let error {
+      print(error)
+    }
+  }
+  
+  func saveNotificationRequest() {
+    let encoder = JSONEncoder()
+    let requestsURL = Bundle.main.url(forResource: "NotificationRequests", withExtension: "json")
+
+    do {
+      let saveData = try encoder.encode(requests)
+      try saveData.write(to: requestsURL!)
+//      print(requests.requests)
+      print(saveData)
+      
+    } catch let error {
+      print(error)
+    }
+  }
+  
+  func setAlarm(weekDay: DaysOfWeek, time: TimesOfDay) {
     dateComponents.calendar = calendar
     dateComponents.year = Int((fetchedPrayerTime.prayerTime?.data?.date.gregorian.year)!)
     dateComponents.month = (fetchedPrayerTime.prayerTime?.data?.date.gregorian.month.number)
@@ -61,10 +110,19 @@ struct Alarm {
       let request = UNNotificationRequest(identifier: uuidString, content: notificationContent, trigger: alarmTrigger)
       notification.add(request)
     
-    self.requests.append(request)
+    requests.requests["\(time.rawValue)\(weekDay.rawValue)"] = uuidString
+    saveNotificationRequest()
   }
-  mutating func cancelAlarm() {
-    notification.removePendingNotificationRequests(withIdentifiers: [uuidString])
-    requests.remove(at: 0)
+  func cancelAlarm(weekDay: DaysOfWeek, time: TimesOfDay) {
+    print(requests.requests.keys)
+    notification.removePendingNotificationRequests(withIdentifiers: [loadRequests(weekDay: weekDay, time: time)])
+    requests.requests.removeValue(forKey: "\(time.rawValue)\(weekDay.rawValue)")
+    saveNotificationRequest()
+  }
+  func loadRequests(weekDay: DaysOfWeek, time: TimesOfDay) -> String {
+    guard let request = requests.requests["\(time.rawValue)\(weekDay.rawValue)"] else {
+      fatalError()
+    }
+    return request
   }
 }

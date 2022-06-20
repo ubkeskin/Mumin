@@ -8,17 +8,18 @@
 import SwiftUI
 
 struct PrayerTimeRowView: View {
+  @ObservedObject var alarmStatus = AlarmStore()
+
+  
   @Binding var isPresented: Bool
   @Binding var alarmIsOn: Bool
 
   @Binding var picker: DaysOfWeek
-  let timeOfDay: TimesOfDay?
-  @ObservedObject var fetchedPrayerTime = FetchPrayerTime()
-  @State var alarm = Alarm(
-  )
+  var alarm: Alarm
 
-  
-    
+  let timeOfDay: TimesOfDay?
+  let fetchedPrayerTime: FetchPrayerTime
+
   var body: some View {
     
     HStack {
@@ -65,33 +66,35 @@ struct PrayerTimeRowView: View {
         .font(.headline)
         .alignmentGuide(HorizontalAlignment.center, computeValue: {_ in 3})
       }
-      Button(action: {alarmIsOn.toggle();
-        var alarm = self.alarm
+      Button(action: {
+        alarmIsOn.toggle()
         if alarmIsOn {
         alarm.setAlarm(weekDay: picker, time: timeOfDay!)
-        self.alarm = alarm
         }
         else {
-          self.alarm.cancelAlarm()
+          self.alarm.cancelAlarm(weekDay: picker, time: timeOfDay!)
         }
       }, label: {Image(systemName: "capsule.portrait\(toggleButton() ?? "")")
           .resizable()
           .frame(width: 20, height: 30)
           .foregroundColor(Color("MenuButtonColor"))
-      })
+      }).onChange(of: picker) { newValue in
+        checkAlarmToggle(picker: newValue)
+        }
       
       Spacer()
-    }.onAppear(){
-      fetchedPrayerTime.fetchDataAtUrl()
     }
   }
   func toggleButton() -> String? {
-    alarmIsOn == true ? ".fill" : nil
+    alarmIsOn ? ".fill" : nil
   }
-  
-//  func dayPicker() -> [DaysOfWeek] {
-//
-//  }
+  func checkAlarmToggle(picker: DaysOfWeek) {
+    if alarm.requests.requests.keys.contains(String(timeOfDay!.rawValue)+String(picker.rawValue)) {
+      alarmIsOn = true    }
+    else {
+      alarmIsOn = false
+    }
+  }
   }
 
 enum DaysOfWeek: String, CaseIterable, Identifiable {
@@ -133,6 +136,6 @@ enum TimesOfDay: String, CaseIterable, Identifiable {
 
 struct PrayerTimeRow_Previews: PreviewProvider {
     static var previews: some View {
-      PrayerTimeRowView(isPresented: .constant(true), alarmIsOn: .constant(true), picker: .constant(.saturday), timeOfDay: .afternoon)
+      PrayerTimeRowView(isPresented: .constant(true), alarmIsOn: .constant(true), picker: .constant(.saturday), alarm: Alarm(), timeOfDay: .afternoon, fetchedPrayerTime: FetchPrayerTime())
     }
 }

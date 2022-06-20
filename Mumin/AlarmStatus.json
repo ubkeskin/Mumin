@@ -1,0 +1,7 @@
+{
+  "isOn" : false,
+  "middayIsOn" : false,
+  "eveningIsOn" : false,
+  "afternoonIsOn" : false,
+  "nightIsOn" : false,
+}

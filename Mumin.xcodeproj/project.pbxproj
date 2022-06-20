@@ -7,9 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		632B8A1A2858BA9C0006BB10 /* NotificationRequests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632B8A192858BA9C0006BB10 /* NotificationRequests.swift */; };
+		632B8A202858BF7C0006BB10 /* NotificationRequests.json in Resources */ = {isa = PBXBuildFile; fileRef = 632B8A1F2858BF7C0006BB10 /* NotificationRequests.json */; };
 		635963A4283C058D000F7890 /* FetchPrayerTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 635963A3283C058D000F7890 /* FetchPrayerTime.swift */; };
 		63597A1528454890005E30F5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 63597A1428454890005E30F5 /* Assets.xcassets */; };
 		63597A192847B07B005E30F5 /* Alarm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63597A182847B07B005E30F5 /* Alarm.swift */; };
+		637D30442854D3F600B2A950 /* AlarmStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637D30432854D3F600B2A950 /* AlarmStatus.swift */; };
+		637D30462854D4B500B2A950 /* AlarmStatus.json in Resources */ = {isa = PBXBuildFile; fileRef = 637D30452854D4B500B2A950 /* AlarmStatus.json */; };
+		637D30482854D52100B2A950 /* AlarmStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637D30472854D52100B2A950 /* AlarmStore.swift */; };
+		6399346B2860CE0700135B78 /* UserLocationModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6399346A2860CE0700135B78 /* UserLocationModal.swift */; };
 		63C44F4D284B558D002B838F /* PrayerTimeRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C44F4C284B558D002B838F /* PrayerTimeRowView.swift */; };
 		63D519B62821982100286550 /* MultipleSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D519B52821982100286550 /* MultipleSelectionView.swift */; };
 		63DC11A927E7A5F600946391 /* MuminApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63DC11A827E7A5F600946391 /* MuminApp.swift */; };
@@ -21,9 +27,16 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		632B8A192858BA9C0006BB10 /* NotificationRequests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationRequests.swift; sourceTree = "<group>"; };
+		632B8A1F2858BF7C0006BB10 /* NotificationRequests.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = NotificationRequests.json; sourceTree = "<group>"; };
 		635963A3283C058D000F7890 /* FetchPrayerTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchPrayerTime.swift; sourceTree = "<group>"; };
 		63597A1428454890005E30F5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		63597A182847B07B005E30F5 /* Alarm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alarm.swift; sourceTree = "<group>"; };
+		637D30432854D3F600B2A950 /* AlarmStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmStatus.swift; sourceTree = "<group>"; };
+		637D30452854D4B500B2A950 /* AlarmStatus.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = AlarmStatus.json; sourceTree = "<group>"; };
+		637D30472854D52100B2A950 /* AlarmStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmStore.swift; sourceTree = "<group>"; };
+		6399346A2860CE0700135B78 /* UserLocationModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLocationModal.swift; sourceTree = "<group>"; };
+		6399346C2860D7C100135B78 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		63C44F4C284B558D002B838F /* PrayerTimeRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrayerTimeRowView.swift; sourceTree = "<group>"; };
 		63D519B52821982100286550 /* MultipleSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipleSelectionView.swift; sourceTree = "<group>"; };
 		63DC11A527E7A5F600946391 /* Mumin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mumin.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -52,6 +65,10 @@
 				635963A3283C058D000F7890 /* FetchPrayerTime.swift */,
 				63F59DB4283D0A3E00B4903D /* PrayerTimeModal.swift */,
 				63597A182847B07B005E30F5 /* Alarm.swift */,
+				637D30432854D3F600B2A950 /* AlarmStatus.swift */,
+				637D30472854D52100B2A950 /* AlarmStore.swift */,
+				632B8A192858BA9C0006BB10 /* NotificationRequests.swift */,
+				6399346A2860CE0700135B78 /* UserLocationModal.swift */,
 			);
 			path = Modals;
 			sourceTree = "<group>";
@@ -75,6 +92,9 @@
 		63DC11A727E7A5F600946391 /* Mumin */ = {
 			isa = PBXGroup;
 			children = (
+				6399346C2860D7C100135B78 /* Info.plist */,
+				632B8A1F2858BF7C0006BB10 /* NotificationRequests.json */,
+				637D30452854D4B500B2A950 /* AlarmStatus.json */,
 				63F59DB1283CDDCC00B4903D /* Sources */,
 				63AFABCF283B99B600A22F41 /* Modals */,
 				63DC11A827E7A5F600946391 /* MuminApp.swift */,
@@ -170,6 +190,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				632B8A202858BF7C0006BB10 /* NotificationRequests.json in Resources */,
+				637D30462854D4B500B2A950 /* AlarmStatus.json in Resources */,
 				63597A1528454890005E30F5 /* Assets.xcassets in Resources */,
 				63DC11B027E7A5FE00946391 /* Preview Assets.xcassets in Resources */,
 			);
@@ -186,11 +208,15 @@
 				63DC11BA27E7B46400946391 /* ClockView.swift in Sources */,
 				63F59DB5283D0A3E00B4903D /* PrayerTimeModal.swift in Sources */,
 				63597A192847B07B005E30F5 /* Alarm.swift in Sources */,
+				632B8A1A2858BA9C0006BB10 /* NotificationRequests.swift in Sources */,
 				63C44F4D284B558D002B838F /* PrayerTimeRowView.swift in Sources */,
+				6399346B2860CE0700135B78 /* UserLocationModal.swift in Sources */,
 				63DC11A927E7A5F600946391 /* MuminApp.swift in Sources */,
 				63F59DB3283CDDDC00B4903D /* Extentions.swift in Sources */,
+				637D30442854D3F600B2A950 /* AlarmStatus.swift in Sources */,
 				63D519B62821982100286550 /* MultipleSelectionView.swift in Sources */,
 				635963A4283C058D000F7890 /* FetchPrayerTime.swift in Sources */,
+				637D30482854D52100B2A950 /* AlarmStore.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -324,6 +350,7 @@
 				DEVELOPMENT_TEAM = DZKQDMND74;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Mumin/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -354,6 +381,7 @@
 				DEVELOPMENT_TEAM = DZKQDMND74;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Mumin/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
