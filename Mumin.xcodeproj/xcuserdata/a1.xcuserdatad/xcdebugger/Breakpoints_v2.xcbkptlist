@@ -14,10 +14,10 @@
             filePath = "Mumin/Modals/FetchPrayerTime.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "30"
-            endingLineNumber = "30"
-            landmarkName = "urlSession"
-            landmarkType = "24">
+            startingLineNumber = "29"
+            endingLineNumber = "29"
+            landmarkName = "FetchPrayerTime"
+            landmarkType = "3">
             <Locations>
                <Location
                   uuid = "24C9F30B-2D3F-4E5B-B7B8-63CAD82A6BC9 - 23aa62841e2791ed"
@@ -186,8 +186,8 @@
             filePath = "Mumin/Views/PrayerTimeRowView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "72"
-            endingLineNumber = "72"
+            startingLineNumber = "83"
+            endingLineNumber = "83"
             landmarkName = "body"
             landmarkType = "24">
          </BreakpointContent>
@@ -202,8 +202,8 @@
             filePath = "Mumin/Views/PrayerTimeRowView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "86"
-            endingLineNumber = "86"
+            startingLineNumber = "97"
+            endingLineNumber = "97"
             landmarkName = "body"
             landmarkType = "24">
          </BreakpointContent>
@@ -234,8 +234,8 @@
             filePath = "Mumin/Views/PrayerTimeRowView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "69"
-            endingLineNumber = "69"
+            startingLineNumber = "80"
+            endingLineNumber = "80"
             landmarkName = "body"
             landmarkType = "24">
          </BreakpointContent>
@@ -298,8 +298,8 @@
             filePath = "Mumin/Views/PrayerTimeRowView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "75"
-            endingLineNumber = "75"
+            startingLineNumber = "86"
+            endingLineNumber = "86"
             landmarkName = "body"
             landmarkType = "24">
          </BreakpointContent>
@@ -314,10 +314,10 @@
             filePath = "Mumin/Views/PrayerTimeRowView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "89"
-            endingLineNumber = "89"
-            landmarkName = "toggleButton()"
-            landmarkType = "7">
+            startingLineNumber = "100"
+            endingLineNumber = "100"
+            landmarkName = "body"
+            landmarkType = "24">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -346,8 +346,8 @@
             filePath = "Mumin/Views/PrayerTimeRowView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "40"
-            endingLineNumber = "40"
+            startingLineNumber = "57"
+            endingLineNumber = "57"
             landmarkName = "body"
             landmarkType = "24">
          </BreakpointContent>
@@ -634,9 +634,9 @@
             filePath = "Mumin/Views/PrayerTimeRowView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "91"
-            endingLineNumber = "91"
-            landmarkName = "checkAlarmToggle(picker:)"
+            startingLineNumber = "102"
+            endingLineNumber = "102"
+            landmarkName = "toggleButton()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -650,8 +650,8 @@
             filePath = "Mumin/Views/PrayerTimeRowView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "82"
-            endingLineNumber = "82"
+            startingLineNumber = "93"
+            endingLineNumber = "93"
             landmarkName = "body"
             landmarkType = "24">
          </BreakpointContent>
@@ -698,8 +698,8 @@
             filePath = "Mumin/Views/PrayerTimeRowView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "97"
-            endingLineNumber = "97"
+            startingLineNumber = "108"
+            endingLineNumber = "108"
             landmarkName = "checkAlarmToggle(picker:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -807,9 +807,9 @@
             filePath = "Mumin/Views/PrayerTimeRowView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "92"
-            endingLineNumber = "92"
-            landmarkName = "checkAlarmToggle(picker:)"
+            startingLineNumber = "103"
+            endingLineNumber = "103"
+            landmarkName = "toggleButton()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -823,8 +823,8 @@
             filePath = "Mumin/Modals/FetchPrayerTime.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "32"
-            endingLineNumber = "32"
+            startingLineNumber = "31"
+            endingLineNumber = "31"
             landmarkName = "urlSession"
             landmarkType = "24">
          </BreakpointContent>

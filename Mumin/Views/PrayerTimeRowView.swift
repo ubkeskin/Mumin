@@ -37,13 +37,24 @@ struct PrayerTimeRowView: View {
         Capsule()
           .foregroundColor(Color("MenuButtonColor"))
           .frame(width: 185, height: 30, alignment: .leading)
-        Text("\(fetchedPrayerTime.fetchPrayerTime(time: timeOfDay ?? .morning)?.replacingOccurrences(of: "%", with: "") ??  "")")
-          .foregroundColor(Color("TextColor"))
-          .font(.headline)
-          .bold()
-          .alignmentGuide(HorizontalAlignment.center, computeValue: { _ in
-            90
-          })
+        Button(action: fetchedPrayerTime.fetchDataAtUrl) {
+          if fetchedPrayerTime.prayerTime?.data == nil {
+            Text("Tap")
+              .foregroundColor(Color("TextColor"))
+              .font(.headline)
+              .bold()
+              
+          } else {
+             Text("\(fetchedPrayerTime.fetchPrayerTime(time: timeOfDay ?? .morning)?.replacingOccurrences(of: "%", with: "") ??  "")")
+              .foregroundColor(Color("TextColor"))
+              .font(.headline)
+              .bold()
+              
+          }
+        }.alignmentGuide(HorizontalAlignment.center, computeValue: { _ in
+          90
+        })
+        
         Text("----")
           .foregroundColor(Color("TextColor"))
           .rotationEffect(.degrees(90))

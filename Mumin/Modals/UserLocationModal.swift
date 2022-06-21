@@ -14,7 +14,9 @@ class UserLocationModal {
   var delegate: CLLocationManagerDelegate {
     locationManager.delegate!.`self`()
   }
-  let userLocation = CLLocation()
+  var userLocation: CLLocation {
+    locationManager.location  ?? CLLocation(latitude: 0, longitude: 0)
+  }
   var longitude: CLLocationDegrees {
     userLocation.coordinate.longitude
   }
