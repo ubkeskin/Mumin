@@ -44,7 +44,7 @@ struct MinuteHand: View {
   @State var time = Time()
   var rotation: Int
   { 270 + time.minutes * 6  }
-  var timer = Timer.publish(every: 30, on: .main, in: .common).autoconnect()
+  var timer = Timer.publish(every: 2, on: .main, in: .common).autoconnect()
 
   
   var body: some View {
@@ -65,7 +65,7 @@ struct HourHand: View {
   @State var time = Time()
   var rotation: Int
   { 270 + time.hour * 15  }
-  var timer = Timer.publish(every: 30, on: .main, in: .common).autoconnect()
+  var timer = Timer.publish(every: 2, on: .main, in: .common).autoconnect()
   
 
   var body: some View {

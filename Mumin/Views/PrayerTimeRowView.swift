@@ -18,10 +18,10 @@ struct PrayerTimeRowView: View {
   var alarm: Alarm
 
   let timeOfDay: TimesOfDay?
-  let fetchedPrayerTime: FetchPrayerTime
+  @ObservedObject var fetchedPrayerTime: FetchPrayerTime
+  
 
   var body: some View {
-    
     HStack {
       Spacer()
       ZStack {
@@ -38,6 +38,7 @@ struct PrayerTimeRowView: View {
           .foregroundColor(Color("MenuButtonColor"))
           .frame(width: 185, height: 30, alignment: .leading)
         Button(action: fetchedPrayerTime.fetchDataAtUrl) {
+          
           if fetchedPrayerTime.prayerTime?.data == nil {
             Text("Tap")
               .foregroundColor(Color("TextColor"))
@@ -45,13 +46,14 @@ struct PrayerTimeRowView: View {
               .bold()
               
           } else {
-             Text("\(fetchedPrayerTime.fetchPrayerTime(time: timeOfDay ?? .morning)?.replacingOccurrences(of: "%", with: "") ??  "")")
+            Text("\(fetchedPrayerTime.fetchPrayerTime(time: timeOfDay ?? .morning)?.replacingOccurrences(of: "%", with: "") ??  "")")
               .foregroundColor(Color("TextColor"))
               .font(.headline)
               .bold()
               
           }
-        }.alignmentGuide(HorizontalAlignment.center, computeValue: { _ in
+        }
+        .alignmentGuide(HorizontalAlignment.center, computeValue: { _ in
           90
         })
         

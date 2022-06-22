@@ -9,11 +9,8 @@ import Foundation
 import SwiftUI
 import CoreLocation
 
-class UserLocationModal {
+class UserLocationModal: NSObject, ObservableObject, CLLocationManagerDelegate {
   let locationManager = CLLocationManager()
-  var delegate: CLLocationManagerDelegate {
-    locationManager.delegate!.`self`()
-  }
   var userLocation: CLLocation {
     locationManager.location  ?? CLLocation(latitude: 0, longitude: 0)
   }
@@ -23,12 +20,19 @@ class UserLocationModal {
   var latitude: CLLocationDegrees {
     userLocation.coordinate.latitude
   }
-  var status: CLAuthorizationStatus {
-    locationManager.authorizationStatus
-  }
-  init() {
+  @Published var status: CLAuthorizationStatus?
+  override init() {
+    super.init()
+    locationManager.delegate = self
+    locationManager.requestWhenInUseAuthorization()
+    locationManager.startUpdatingLocation()
+    self.status = self.locationManager.authorizationStatus
     DispatchQueue.global(qos: .default).async {
       self.locationManager.requestWhenInUseAuthorization()
     }
+  }
+  
+  func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
+    status = manager.authorizationStatus
   }
 }

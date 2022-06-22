@@ -16,15 +16,17 @@ class FetchPrayerTime: NSObject, ObservableObject, URLSessionDelegate {
   var dateFormatter = DateFormatter()
   var date = Date().formatted(date: .numeric, time: .omitted)
   
-  
-  
   @Published var prayerTime: PrayerTimeModal?
-  
+
+    
   override init() {
     userLocation = UserLocationModal()
     super.init()
-    fetchDataAtUrl()
-    print(userLocation.latitude)
+    if userLocation.status == .authorizedAlways || userLocation.status == .authorizedWhenInUse {
+      fetchDataAtUrl()
+      print(userLocation.latitude)
+    
+    }
   }
     
   
@@ -64,7 +66,7 @@ class FetchPrayerTime: NSObject, ObservableObject, URLSessionDelegate {
               return
           }
           if let result = String(data: data, encoding: .utf8) {
-//              print(result)
+              print("Ses Deneme" + result)
           }
       enum DateError: String, Error {
           case invalidDate
@@ -76,7 +78,7 @@ class FetchPrayerTime: NSObject, ObservableObject, URLSessionDelegate {
       case .restricted, .denied:
         self.userLocation.locationManager.requestWhenInUseAuthorization()
       case .authorizedAlways, .authorizedWhenInUse, .authorized:
-        DispatchQueue.global(qos: .userInitiated).sync {
+        DispatchQueue.main.async {
           do {
             self.prayerTime = try decoder.decode(PrayerTimeModal.self, from: data)
           } catch let error {
@@ -88,6 +90,7 @@ class FetchPrayerTime: NSObject, ObservableObject, URLSessionDelegate {
 
 
     }
+    
     task?.resume()
     
     

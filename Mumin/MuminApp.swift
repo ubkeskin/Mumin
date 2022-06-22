@@ -9,9 +9,11 @@ import SwiftUI
  
 @main
 struct MuminApp: App {
+  var locationManager = UserLocationModal()
+  
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            MainView()
         }
     }
 }
