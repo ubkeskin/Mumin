@@ -149,6 +149,6 @@ enum TimesOfDay: String, CaseIterable, Identifiable {
 
 struct PrayerTimeRow_Previews: PreviewProvider {
     static var previews: some View {
-      PrayerTimeRowView(isPresented: .constant(true), alarmIsOn: .constant(true), picker: .constant(.saturday), alarm: Alarm(), timeOfDay: .afternoon, fetchedPrayerTime: FetchPrayerTime())
+      PrayerTimeRowView(isPresented: .constant(true), alarmIsOn: .constant(true), picker: .constant(.saturday), alarm: Alarm(fetchedPrayerTime: FetchPrayerTime()), timeOfDay: .afternoon, fetchedPrayerTime: FetchPrayerTime())
     }
 }

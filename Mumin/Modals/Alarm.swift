@@ -19,13 +19,13 @@ class Alarm: Equatable, ObservableObject {
     
   
   var dateComponents = DateComponents()
-  @ObservedObject var fetchedPrayerTime = FetchPrayerTime()
+  @ObservedObject var fetchedPrayerTime: FetchPrayerTime
 
   @Published var requests = NotificationRequests()
   
   
-  init() {
-    fetchedPrayerTime.fetchDataAtUrl()
+  init(fetchedPrayerTime: FetchPrayerTime) {
+    self.fetchedPrayerTime = fetchedPrayerTime
     calendar.locale = .init(identifier: "tr_TR")
     loadNotificationRequests()
   }

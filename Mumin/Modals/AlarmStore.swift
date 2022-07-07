@@ -13,9 +13,7 @@ class AlarmStore: ObservableObject {
     didSet {
       saveAlarmStatusJSON()
     }
-  }
-  @Published var alarm = Alarm()
-  
+  }  
   let alarmStatusUrl = Bundle.main.url(forResource: "AlarmStatus", withExtension: "json")
   
   init() {

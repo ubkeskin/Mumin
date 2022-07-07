@@ -7,16 +7,6 @@
 
 import SwiftUI
 
-struct MainView: View {
-    @StateObject var userLocation = UserLocationModal()
-    @StateObject var fetchedPrayerTime = FetchPrayerTime()
-
-  var body: some View {
-if userLocation.status == .authorizedWhenInUse || userLocation.status == .authorizedAlways {
-  ContentView(fetchedPrayerTime: fetchedPrayerTime)
-}
-  }
-}
 
 struct ContentView: View {
   @State var isPresented: Bool = false
@@ -30,6 +20,7 @@ struct ContentView: View {
   
   @ObservedObject var alarmStore = AlarmStore()
   @ObservedObject var fetchedPrayerTime: FetchPrayerTime
+  let alarm: Alarm
     
     var body: some View {
 //      if userLocation.status == .authorizedWhenInUse || userLocation.status == .authorizedAlways {
@@ -41,15 +32,15 @@ struct ContentView: View {
             ClockView()
             Spacer()
             Divider()
-            PrayerTimeRowView(isPresented: $isPresented, alarmIsOn: $alarmStore.alarmStatus.isOn, picker: $picker, alarm: alarmStore.alarm, timeOfDay: .morning, fetchedPrayerTime: fetchedPrayerTime)
+            PrayerTimeRowView(isPresented: $isPresented, alarmIsOn: $alarmStore.alarmStatus.isOn, picker: $picker, alarm: alarm, timeOfDay: .morning, fetchedPrayerTime: fetchedPrayerTime)
               .padding()
-            PrayerTimeRowView(isPresented: $isPresented, alarmIsOn: $alarmStore.alarmStatus.middayIsOn, picker: $middayPicker, alarm: alarmStore.alarm, timeOfDay: .midday, fetchedPrayerTime: fetchedPrayerTime)
+            PrayerTimeRowView(isPresented: $isPresented, alarmIsOn: $alarmStore.alarmStatus.middayIsOn, picker: $middayPicker, alarm: alarm, timeOfDay: .midday, fetchedPrayerTime: fetchedPrayerTime)
               .padding()
-            PrayerTimeRowView(isPresented: $isPresented, alarmIsOn: $alarmStore.alarmStatus.eveningIsOn, picker: $afternoonPicker, alarm: alarmStore.alarm, timeOfDay: .afternoon, fetchedPrayerTime: fetchedPrayerTime)
+            PrayerTimeRowView(isPresented: $isPresented, alarmIsOn: $alarmStore.alarmStatus.eveningIsOn, picker: $afternoonPicker, alarm: alarm, timeOfDay: .afternoon, fetchedPrayerTime: fetchedPrayerTime)
               .padding()
-            PrayerTimeRowView(isPresented: $isPresented, alarmIsOn: $alarmStore.alarmStatus.afternoonIsOn, picker: $eveningPicker, alarm: alarmStore.alarm, timeOfDay: .evening, fetchedPrayerTime: fetchedPrayerTime)
+            PrayerTimeRowView(isPresented: $isPresented, alarmIsOn: $alarmStore.alarmStatus.afternoonIsOn, picker: $eveningPicker, alarm: alarm, timeOfDay: .evening, fetchedPrayerTime: fetchedPrayerTime)
               .padding()
-            PrayerTimeRowView(isPresented: $isPresented, alarmIsOn: $alarmStore.alarmStatus.nightIsOn, picker: $nightPicker, alarm: alarmStore.alarm, timeOfDay: .night, fetchedPrayerTime: fetchedPrayerTime)
+            PrayerTimeRowView(isPresented: $isPresented, alarmIsOn: $alarmStore.alarmStatus.nightIsOn, picker: $nightPicker, alarm: alarm, timeOfDay: .night, fetchedPrayerTime: fetchedPrayerTime)
               .padding()
             Menu {
               
@@ -69,8 +60,8 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-      ContentView(fetchedPrayerTime: FetchPrayerTime())
-      ContentView(fetchedPrayerTime: FetchPrayerTime())
+      ContentView(fetchedPrayerTime: FetchPrayerTime(), alarm: Alarm(fetchedPrayerTime: FetchPrayerTime()))
+      ContentView(fetchedPrayerTime: FetchPrayerTime(), alarm: Alarm(fetchedPrayerTime: FetchPrayerTime()))
         .preferredColorScheme(.dark)
     }
 }

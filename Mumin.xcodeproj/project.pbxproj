@@ -18,6 +18,7 @@
 		6399346B2860CE0700135B78 /* UserLocationModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6399346A2860CE0700135B78 /* UserLocationModal.swift */; };
 		63C44F4D284B558D002B838F /* PrayerTimeRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C44F4C284B558D002B838F /* PrayerTimeRowView.swift */; };
 		63D519B62821982100286550 /* MultipleSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D519B52821982100286550 /* MultipleSelectionView.swift */; };
+		63DAB46B286E3F2300D87162 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63DAB46A286E3F2300D87162 /* MainView.swift */; };
 		63DC11A927E7A5F600946391 /* MuminApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63DC11A827E7A5F600946391 /* MuminApp.swift */; };
 		63DC11AB27E7A5F600946391 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63DC11AA27E7A5F600946391 /* ContentView.swift */; };
 		63DC11B027E7A5FE00946391 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 63DC11AF27E7A5FE00946391 /* Preview Assets.xcassets */; };
@@ -39,6 +40,7 @@
 		6399346C2860D7C100135B78 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		63C44F4C284B558D002B838F /* PrayerTimeRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrayerTimeRowView.swift; sourceTree = "<group>"; };
 		63D519B52821982100286550 /* MultipleSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipleSelectionView.swift; sourceTree = "<group>"; };
+		63DAB46A286E3F2300D87162 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		63DC11A527E7A5F600946391 /* Mumin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mumin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		63DC11A827E7A5F600946391 /* MuminApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MuminApp.swift; sourceTree = "<group>"; };
 		63DC11AA27E7A5F600946391 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -116,6 +118,7 @@
 		63DC11B627E7B41E00946391 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				63DAB46A286E3F2300D87162 /* MainView.swift */,
 				63DC11AA27E7A5F600946391 /* ContentView.swift */,
 				63DC11B927E7B46400946391 /* ClockView.swift */,
 				63D519B52821982100286550 /* MultipleSelectionView.swift */,
@@ -205,6 +208,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				63DC11AB27E7A5F600946391 /* ContentView.swift in Sources */,
+				63DAB46B286E3F2300D87162 /* MainView.swift in Sources */,
 				63DC11BA27E7B46400946391 /* ClockView.swift in Sources */,
 				63F59DB5283D0A3E00B4903D /* PrayerTimeModal.swift in Sources */,
 				63597A192847B07B005E30F5 /* Alarm.swift in Sources */,
